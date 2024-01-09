@@ -1,0 +1,33 @@
+SOLVER:
+  gpu: 0,
+  run: test
+  ckpt: ./logs/pdbbind/resnet_points_reg_6/model/iter_188000.ckpt
+  test_iter: 11400 
+  task: reg
+
+DATA:
+  test:
+    dtype: points
+    distort: True
+    depth: 6
+    axis: xyz
+    angle: (180, 180, 180)
+    interval: (1, 1, 1)
+    scale: 0.0
+    jitter: 0.125
+    location: ../../pdbbind/data_folder/tfrecords/train_reg_points_den3.tfrecords
+    shuffle: 1
+    batch_size: 1
+    x_alias: data
+
+MODEL:
+  name: resnet  #resnet or vgg
+  channel: 24
+  nout: 1
+  depth: 6
+  dropout: (0.0, )
+  resblock_num: 3
+
+LOSS:
+  num_class: 1
+  weight_decay: 0.01

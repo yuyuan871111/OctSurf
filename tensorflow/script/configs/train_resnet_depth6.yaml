@@ -1,0 +1,51 @@
+SOLVER:
+  gpu: 0,
+  logdir: ./logs/pdbbind/resnet_points_reg_6
+  run: train
+  max_iter: 188000 #190437 #100 epochs for batch_size=8
+  test_iter: 100
+  test_every_iter: 4000
+  step_size: (40000,)
+  learning_rate: 0.001
+  task: reg
+
+DATA:
+  train:
+    dtype: points
+    distort: True
+    depth: 6
+    axis: xyz
+    angle: (180, 180, 180)
+    interval: (1, 1, 1)
+    scale: 0.0
+    jitter: 0.125
+    location: ../../pdbbind/data_folder/tfrecords/train_reg_points_den3.tfrecords
+    batch_size: 8
+    x_alias: data
+    shuffle: 100
+    dropout: (0, 0)
+  test:
+    dtype: points
+    distort: True
+    depth: 6
+    axis: xyz
+    angle: (12, 12, 12)
+    interval: (1, 1, 1)
+    scale: 0.0
+    jitter: 0.0
+    location: ../../pdbbind/data_folder/tfrecords/val_reg_points_den3.tfrecords
+    shuffle: 1
+    batch_size: 6
+    x_alias: data
+
+MODEL:
+  name: resnet #resnet or vgg
+  channel: 24
+  nout: 1
+  depth: 6
+  dropout: (0.0,)
+  resblock_num: 3
+
+LOSS:
+  num_class: 1
+  weight_decay: 0.01
