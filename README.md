@@ -1,8 +1,4 @@
-# OctSurf
-
-<!-- ## Introduction <a name="introduction"></a> -->
-
-This is the code repository for OctSurf: Efficient Hierarchical Voxel-based Molecular Surface Representation for the Protein-Ligand Affinity Prediction.
+# OctSurf: Efficient Hierarchical Voxel-based Molecular Surface Representation for the Protein-Ligand Affinity Prediction.
 
 ## Disclaimer
 
