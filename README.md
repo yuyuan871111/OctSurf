@@ -1,5 +1,6 @@
 # OctSurf: Efficient Hierarchical Voxel-based Molecular Surface Representation for the Protein-Ligand Affinity Prediction.
-Please cite: 
+Please cite:  
+Liu, Q., Wang, P. S., Zhu, C., Gaines, B. B., Zhu, T., Bi, J., & Song, M. (2021). OctSurf: Efficient hierarchical voxel-based molecular surface representation for protein-ligand affinity prediction. Journal of Molecular Graphics and Modelling, 105, 107865.  
 ```
 @article{liu2021octsurf,
   title={OctSurf: Efficient hierarchical voxel-based molecular surface representation for protein-ligand affinity prediction},
