@@ -44,20 +44,22 @@ conda create -n OctSurf_env tensorflow-gpu==1.14.0
 conda activate OctSurf_env
 conda install -c conda-forge openbabel==3.0.0
 conda install -c conda-forge yacs tqdm
-pip install sklearn
+pip install scikit-learn
 pip install matplotlib
 pip install seaborn
 # uncomment if want to visualize in Paraview
 # pip install vtk==9.0.3
+# uncomment if cuda is not installed (or path is not found)
+# conda install nvidia/label/cuda-11.3.0::cuda-toolkit
 
 
 cd octree/external && git clone --recursive https://github.com/wang-ps/octree-ext.git
 cd .. && mkdir build && cd build
-cmake .. -DUSE_CUDA=ON && cmake --build . --config Release
+cmake -D CMAKE_CUDA_COMPILER=[cuda_nvcc_path] .. -DUSE_CUDA=ON && cmake --build . --config Release
 export PATH=`pwd`:$PATH
 
-cd ../../../tensorflow/libs
-python build.py
+cd ../../tensorflow/libs
+python build.py --cuda [cuda_path]
 cd ../../
 ```
 

@@ -1,0 +1,8 @@
+# compile file
+pdbbind/java/Surface_for_single.class
+octree/build
+octree/external/octree-ext
+tensorflow
+
+# dataset
+pdbbind
